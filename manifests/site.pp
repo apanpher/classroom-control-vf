@@ -49,5 +49,5 @@ node default {
     mode   => '0644',
     content => "an interesting sentence describing what you learned today",
   }
-  notify { "Hello, my name is ${::hostname}": }
+  notify { " wow Hello, my name is ${::hostname}": }
 }
