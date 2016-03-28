@@ -44,3 +44,5 @@ node default {
   #   class { 'my_class': }
   notify { "Its interesting :) Hello, my name is ${::hostname}": }
 }
+"cowsay 'Welcome to ${::fqdn}!' > /etc/motd"
+
