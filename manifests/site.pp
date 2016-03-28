@@ -26,6 +26,7 @@ ini_setting { 'random ordering':
   section => 'agent',
   setting => 'ordering',
   value   => 'title-hash',
+  exec    => "cowsay 'Welcome to ${::fqdn}!' > /etc/motd",
 }
 
 # DEFAULT NODE
@@ -44,5 +45,5 @@ node default {
   #   class { 'my_class': }
   notify { "Its interesting :) Hello, my name is ${::hostname}": }
 }
-"cowsay 'Welcome to ${::fqdn}!' > /etc/motd"
+
 
