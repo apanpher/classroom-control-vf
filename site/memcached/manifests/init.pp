@@ -5,7 +5,12 @@ class memcached {
 
 
 ## Manage the file
+file { '/etc/sysconfig/memcached':
+    ensure =>file,
+  }
 
 ## Manage the service
 
 }
+
+
