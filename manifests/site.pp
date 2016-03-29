@@ -42,8 +42,8 @@ node default {
   ## Declare the skeleton class (Lab 9.3)
   include skeleton
   
-  ## Declare the users class (Lab 9.2)
-  include users
+   ## Declare the skeleton class (Lab 11.1)
+  include memcached
   
   ## HOMEWORK - Hot entry (Lab 7.3)
   host { 'testing.puppetlabs.vm':
