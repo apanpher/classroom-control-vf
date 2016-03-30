@@ -1,13 +1,13 @@
 class nginx {
 
-  $loc = '/etc/nginx'
+  $loc = '/etc/nginx/'
   $site = '/var/www/'
   
   package { 'nginx':
     ensure => installed,
   }
   
-  file { "$loc/nginx.conf":
+  file { "{$loc}nginx.conf":
     ensure => file,
     source => 'puppet:///modules/nginx/nginx.conf',
     require => Package['nginx'],
