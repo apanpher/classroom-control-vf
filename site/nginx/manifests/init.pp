@@ -1,23 +1,27 @@
 
-$loc = "/etc/nginx"
-
 class nginx {
+  File {
+    owner => 'root',
+    group => 'root',
+    mode  => '0644',
+    require => Package['nginx'],
+    notify  => Service['nginx'],
+  }
+
+  $loc = '/etc/nginx'
+  
   package { 'nginx':
     ensure => installed,
   }
   
-  file { '/etc/nginx/nginx.conf':
+  file { "${loc}/nginx.conf":
     ensure => file,
     source => 'puppet:///modules/nginx/nginx.conf',
-    require => Package['nginx'],
-    notify  => Service['nginx'],
   }
   
   file { '/etc/nginx/conf.d/default.conf':
     ensure => file,
     source => 'puppet:///modules/nginx/default.conf',
-    require => Package['nginx'],
-    notify  => Service['nginx'],
   }
   
   service { 'nginx':
