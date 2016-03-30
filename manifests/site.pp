@@ -45,8 +45,6 @@ node default {
     notify { "Looks like I'm on: ${vm}": }
   }
   
-  ## Declare the nginx class (Lab 11.2)
-  include aliases
 
   ## Declare the nginx class (Lab 11.2)
   include nginx
