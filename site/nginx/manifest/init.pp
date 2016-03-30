@@ -1,7 +1,9 @@
 
 class nginx {
-$loc = '/etc/nginx',
-$site = '/var/www/'
+
+  $loc = '/etc/nginx',
+  $site = '/var/www/'
+  
   package { 'nginx':
     ensure => installed,
   }
