@@ -1,20 +1,19 @@
-$loc = "/etc/nginx/"
-  $site = "/var/www/"
+
+$loc = "/etc/nginx"
 
 class nginx {
-
   package { 'nginx':
     ensure => installed,
   }
   
-  file { "{loc}nginx.conf":
+  file { '/etc/nginx/nginx.conf':
     ensure => file,
     source => 'puppet:///modules/nginx/nginx.conf',
     require => Package['nginx'],
     notify  => Service['nginx'],
   }
   
-  file { '{loc}/conf.d/default.conf':
+  file { '/etc/nginx/conf.d/default.conf':
     ensure => file,
     source => 'puppet:///modules/nginx/default.conf',
     require => Package['nginx'],
@@ -26,11 +25,11 @@ class nginx {
     enable => true,
   }
   
-  file { "{$site}":
+  file { '/var/www/':
     ensure => directory,
   }
   
-  file { "{$site}/index.html":
+  file { '/var/www/index.html':
     ensure => file,
     source => 'puppet:///modules/nginx/index.html',
   }
