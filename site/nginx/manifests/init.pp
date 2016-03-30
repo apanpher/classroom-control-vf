@@ -1,6 +1,6 @@
 class nginx {
 
-  $loc = '/etc/nginx',
+  $loc = '/etc/nginx'
   $site = '/var/www/'
   
   package { 'nginx':
