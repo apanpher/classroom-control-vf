@@ -7,14 +7,14 @@ class nginx {
     ensure => installed,
   }
   
-  file { "{$loc}nginx.conf":
+  file { "${loc}nginx.conf":
     ensure => file,
     source => 'puppet:///modules/nginx/nginx.conf',
     require => Package['nginx'],
     notify  => Service['nginx'],
   }
   
-  file { '{$loc}/conf.d/default.conf':
+  file { '${loc}/conf.d/default.conf':
     ensure => file,
     source => 'puppet:///modules/nginx/default.conf',
     require => Package['nginx'],
